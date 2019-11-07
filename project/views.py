@@ -2,12 +2,7 @@ from flask import render_template
 from project.app import app, pages
 
 
-@app.route("/")
-def index():
-    return "Hello World!"
-
-
-@app.route('/')
+@app.route('/<path:path>/')
 def home():
     posts = [page for page in pages if 'date' in page.meta]
     # Sort pages by date
